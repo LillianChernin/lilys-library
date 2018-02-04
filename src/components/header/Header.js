@@ -10,14 +10,17 @@ class Header extends Component {
   render() {
     return (
       <div className="Header">
-        <div className="Header-main-title">
-          <h1>Lily's Library</h1>
+        <div className="topHeader">
+          <div className="Header-main-title">
+            <h1>Lily's Library</h1>
+          </div>
+          <div className="spacer"></div>
+          <div className="Header-icons">
+            <img src={booksIcon} alt="books" />
+            <img src={homeIcon} alt="house" />
+          </div>
         </div>
-        <div className="Header-icons">
-          <img src={booksIcon} alt="books" />
-          <img src={homeIcon} alt="house" />
-        </div>
-        <div>
+        <div className="bottomHeader">
           <SearchContainer />
           <BrowseContainer />
         </div>
