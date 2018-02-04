@@ -1,0 +1,13 @@
+.MiniBookDisplay {
+  border: 2px solid black;
+  display: inline-block;
+  width: 30%;
+}
+
+.Available {
+  color: green;
+}
+
+.OnLoan, .dateAvailable {
+  color: red;
+}
