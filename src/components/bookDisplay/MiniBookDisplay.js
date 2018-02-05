@@ -17,9 +17,6 @@ class MiniBookDisplay extends Component {
           authorList = authorList + ", " + this.props.author[i];
         }
       }
-      // authorList = this.props.author.reduce((accumulator, currentValue) => {
-      //   return accumulator + " " + currentValue;
-      // }, "")
     } else if (this.props.author.length === 2) {
       authorList = this.props.author[0] + " and " + this.props.author[1];
     } else if (this.props.author.length === 1) {

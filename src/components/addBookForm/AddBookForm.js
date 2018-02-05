@@ -6,25 +6,25 @@ class AddBookForm extends Component {
     return (
       <div className="AddBookForm">
         <span>Book Title: </span>
-        <input type="text" />
+        <input type="text" onChange={this.props.onInputChangeTitle}/>
         <br />
         <span>Author(s): </span>
-        <input type="text" />
+        <input type="text" onChange={this.props.onInputChangeAuthor}/>
         <button>Add Author</button>
         <br />
         <span>Genre(s): </span>
-        <input type="text" />
+        <input type="text" onChange={this.props.onInputChangeGenre}/>
         <button>Add Genre</button>
         <br />
         <span>Keywords: </span>
-        <input type="text" />
+        <input type="text" onChange={this.props.onInputChangeKeyword}/>
         <button>Add Keyword</button>
         <br />
         <span>Date Published: </span>
-        <input type="text" />
+        <input type="text" onChange={this.props.onInputChangeDatePublished}/>
         <br />
         <span>Format: </span>
-        <select required>
+        <select required onChange={this.props.onInputChangeFormat}>
           <option value="book">Book</option>
           <option value="book-with-cd">Book w/CD</option>
           <option value="book-with-dvd">Book w/DVD</option>
@@ -33,12 +33,12 @@ class AddBookForm extends Component {
         </select>
         <br />
         <span>Image URL: </span>
-        <input type="text" />
+        <input type="text" onChange={this.props.onInputChangeImageUrl}/>
         <br />
         <span>Location: </span>
-        <input type="text" />
+        <input type="text" onChange={this.props.onInputChangeLocation}/>
         <br />
-        <button>Add to Library</button>
+        <button onClick={this.props.handleSubmit}>Add to Library</button>
       </div>
     )
   }
