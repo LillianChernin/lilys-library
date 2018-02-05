@@ -9,6 +9,10 @@ class BookModel {
     let request = axios.get('https://lilys-library-back-end.herokuapp.com/api/v1/books');
     return request;
   }
+  static getOne(bookId) {
+    let request = axios.get(`https://lilys-library-back-end.herokuapp.com/api/vi/books/${bookId}`);
+    return request;
+  }
   static delete(book) {
     let request = axios.delete(`https://lilys-library-back-end.herokuapp.com/api/v1/books/${book._id}`);
     return request;
