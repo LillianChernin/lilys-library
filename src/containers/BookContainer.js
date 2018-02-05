@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import FullBookDisplay from '../components/bookDisplay/FullBookDisplay';
 import BookCover from '../images/test-book-cover-1.jpg'
+import BookModel from '../models/Book';
 
 class BookContainer extends Component {
   render() {

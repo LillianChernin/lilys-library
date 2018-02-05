@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import MiniBookDisplay from '../components/bookDisplay/MiniBookDisplay';
+import BookModel from '../models/Book';
 
 class BooksContainer extends Component {
   render() {
