@@ -12,12 +12,12 @@ class Header extends Component {
       <div className="Header">
         <div className="topHeader">
           <div className="Header-main-title">
-            <h1>Lily's Library</h1>
+            <h1 className="Header-main-heading">Lily's Library</h1>
           </div>
           <div className="spacer"></div>
           <div className="Header-icons">
-            <img src={booksIcon} alt="books" />
-            <img src={homeIcon} alt="house" />
+            <img src={booksIcon} alt="books" className="Header-icon"/>
+            <img src={homeIcon} alt="house" className="Header-icon"/>
           </div>
         </div>
         <div className="bottomHeader">

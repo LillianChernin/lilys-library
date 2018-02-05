@@ -8,8 +8,15 @@ h1 {
 .Header-main-title {
   display: inline-block;
 }
+.Header-main-heading {
+  margin: 0px 20px 50px 20px;
+}
 .Header-icons {
   display: inline-block;
+}
+.Header-icon {
+  height: 75px;
+  margin: 45px 16px 0px 0px;
 }
 .spacer {
   display: inline-block;

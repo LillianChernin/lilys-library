@@ -17,6 +17,12 @@ class BooksContainer extends Component {
           dateDue={""}
           onLoan={false}
         />
+        <MiniBookDisplay
+          title={"Fascinating Novel"}
+          author={["Tim Twiddles","Roberta Roberts","Derp Derpinstein"]}
+          dateDue={""}
+          onLoan={false}
+        />
       </div>
     )
   }
