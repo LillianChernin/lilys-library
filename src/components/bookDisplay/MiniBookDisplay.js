@@ -34,7 +34,7 @@ class MiniBookDisplay extends Component {
     }
     return (
       <div className="MiniBookDisplay">
-        <h3><Link to={'/books/book'}>{this.props.title}</Link></h3>
+        <h3><Link className="Link" to={'/books/book'}>{this.props.title}</Link></h3>
         <h4>{authorList}</h4>
         <h5>{this.props.location}</h5>
         {loanStatus}

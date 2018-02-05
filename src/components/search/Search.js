@@ -13,6 +13,7 @@ class Search extends Component {
         <option value="genre">Genre</option>
         <option value="format">Format</option>
       </select>
+      <input type="text" placeholder="Enter search term here..."/>
       <button>Search</button>
       </div>
     )

@@ -2,10 +2,12 @@ import React, {Component} from 'react';
 import { Switch, Route } from 'react-router-dom';
 import Home from '../components/home/Home';
 import BookContainer from '../containers/BookContainer';
+import BooksContainer from '../containers/BooksContainer';
 
 export default (
   <Switch>
     <Route exact path='/' component={Home} />
+    <Route exact path='/books' component={BooksContainer} />
     <Route path='/books/book' component={BookContainer} />
   </Switch>
 )

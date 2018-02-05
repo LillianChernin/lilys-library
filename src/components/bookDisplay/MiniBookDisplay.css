@@ -12,3 +12,8 @@
 .OnLoan, .dateAvailable {
   color: red;
 }
+
+.Link {
+  text-decoration: none;
+  color: black;
+}

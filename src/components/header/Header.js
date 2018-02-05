@@ -5,6 +5,7 @@ import BrowseContainer from '../../containers/BrowseContainer';
 import SearchContainer from '../../containers/SearchContainer';
 import './Header.css';
 import '../../containers/SearchContainer';
+import {Link} from 'react-router-dom';
 
 class Header extends Component {
   render() {
@@ -12,12 +13,12 @@ class Header extends Component {
       <div className="Header">
         <div className="topHeader">
           <div className="Header-main-title">
-            <h1 className="Header-main-heading">Lily's Library</h1>
+            <h1 className="Header-main-heading"><Link className="Link" to={'/'}>Lily's Library</Link></h1>
           </div>
           <div className="spacer"></div>
           <div className="Header-icons">
-            <img src={booksIcon} alt="books" className="Header-icon"/>
-            <img src={homeIcon} alt="house" className="Header-icon"/>
+            <Link to={'/books'}><img src={booksIcon} alt="books" className="Header-icon"/></Link>
+            <Link to={'/'}><img src={homeIcon} alt="house" className="Header-icon"/></Link>
           </div>
         </div>
         <div className="bottomHeader">
