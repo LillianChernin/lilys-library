@@ -35,7 +35,10 @@ class AddBookForm extends Component {
         <span>Image URL: </span>
         <input type="text" />
         <br />
-        <button>Add Book</button>
+        <span>Location: </span>
+        <input type="text" />
+        <br />
+        <button>Add to Library</button>
       </div>
     )
   }

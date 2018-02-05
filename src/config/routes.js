@@ -3,6 +3,7 @@ import { Switch, Route } from 'react-router-dom';
 import Home from '../components/home/Home';
 import BookContainer from '../containers/BookContainer';
 import BooksContainer from '../containers/BooksContainer';
+import AddBookFormContainer from '../containers/AddBookFormContainer';
 
 export default (
   <Switch>
