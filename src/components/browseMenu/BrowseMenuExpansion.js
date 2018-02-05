@@ -6,8 +6,14 @@ class BrowseMenuExpansion extends Component {
   render() {
     let genreList = ["Art","Business","Christian","Classics","Cookbooks","Fantasy","Fiction","History","Horror","Music","Nonfiction","Poetry","Science","Science Fiction","Self Help","Young Adult"];
     let formats = ["Book","Book w/CD","Book w/DVD","CD","DVD"];
-    let renderedGenreList;
-    renderedGenreList = genreList.map((genre) => {
+    let renderedFormatList = formats.map((format) => {
+      return (
+        <div>
+        <Link to={('/browse/' + format)}>{format}</Link>
+        </div>
+      )
+    })
+    let renderedGenreList = genreList.map((genre) => {
       return (
         <div>
         <Link to={('/browse/' + genre)}>{genre}</Link>
@@ -19,6 +25,7 @@ class BrowseMenuExpansion extends Component {
       <div className="BrowseMenuExpansion">
         <h2>Genres</h2>
         <div className="GenreList">{renderedGenreList}</div>
+        <div className="FormatList">{renderedFormatList}</div>
       </div>
     )
   }
