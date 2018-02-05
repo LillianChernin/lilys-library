@@ -11,33 +11,27 @@ class BookContainer extends Component {
     }
   }
   render() {
-    // let self = this;
-    // if (this.state.book === "") {
-    //   BookModel.all().then( (res) => {
-    //     let foundBook = res.data.filter(book => book._id === this.props._id)
-    //     return (
-    //       <MiniBookDisplay
-    //         title={book.title}
-    //         author={book.author}
-    //         dateDue={book.dateDue}
-    //         onLoan={book.onLoan}
-    //         id={book._id}
-    //       />
-    //     )
-    //     self.setState({
-    //       book: book
-    //     })
-    //   })
-    // }
+    let self = this;
+    if (this.state.book === "") {
+      BookModel.all().then( (res) => {
+        let foundBook = res.data.filter(book => book._id === self.props.match.params.id)
+        let renderedFoundBook = (
+          <FullBookDisplay
+            title={foundBook[0].title}
+            author={foundBook[0].author}
+            onLoan={foundBook[0].onLoan}
+            dateDue={foundBook[0].dateDue}
+            imageUrl={BookCover}
+          />
+        )
+        self.setState({
+          book: renderedFoundBook
+        })
+      })
+    }
     return (
       <div className="BookContainer">
-        <FullBookDisplay
-          title={"Introduction to Quantum Mechanics"}
-          author={["David J. Griffiths"]}
-          onLoan={false}
-          dateDue={""}
-          imageUrl={BookCover}
-        />
+        {this.state.book}
       </div>
     )
   }
