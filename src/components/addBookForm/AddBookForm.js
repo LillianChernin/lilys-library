@@ -7,13 +7,16 @@ class AddBookForm extends Component {
     let renderedGenres = [];
     let renderedKeywords = [];
     for (let i = 0; i < this.props.authors.length; i++) {
-      renderedAuthors.push(<div className="displayAuthor" >{this.props.authors[i]} <button onClick={this.props.deleteAuthor} data-author-index={i}>X</button></div>);
+      let className = "displayAuthor " + i;
+      renderedAuthors.push(<div className={className}>{this.props.authors[i]} <button onClick={this.props.deleteAuthor} >X</button></div>);
     }
     for (let i = 0; i < this.props.genres.length; i++) {
-      renderedGenres.push(<div className="displayGenre" >{this.props.genres[i]} <button onClick={this.props.deleteGenre} data-genre-index={i}>X</button></div>);
+      let className = "displayGenre " + i;
+      renderedGenres.push(<div className={className} >{this.props.genres[i]} <button onClick={this.props.deleteGenre} >X</button></div>);
     }
     for (let i = 0; i < this.props.keywords.length; i++) {
-      renderedKeywords.push(<div className="displayKeyword" >{this.props.keywords[i]} <button onClick={this.props.deleteKeyword} data-keyword-index={i}>X</button></div>);
+      let className = "displayKeyword " + i;
+      renderedKeywords.push(<div className={className} >{this.props.keywords[i]} <button onClick={this.props.deleteKeyword} >X</button></div>);
     }
     return (
       <div className="AddBookForm">

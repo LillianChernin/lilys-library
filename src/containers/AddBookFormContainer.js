@@ -22,6 +22,9 @@ class AddBookFormContainer extends Component {
     this.handleAddAuthorButton = this.handleAddAuthorButton.bind(this);
     this.handleAddGenreButton = this.handleAddGenreButton.bind(this);
     this.handleAddKeywordButton = this.handleAddKeywordButton.bind(this);
+    this.handleDeleteAuthorButton = this.handleDeleteAuthorButton.bind(this);
+    this.handleDeleteGenreButton = this.handleDeleteGenreButton.bind(this);
+    this.handleDeleteKeywordButton = this.handleDeleteKeywordButton.bind(this);
     this.onInputChangeTitle = this.onInputChangeTitle.bind(this);
     this.onInputChangeAuthor = this.onInputChangeAuthor.bind(this);
     this.onInputChangeGenre = this.onInputChangeGenre.bind(this);
@@ -40,6 +43,7 @@ class AddBookFormContainer extends Component {
     this.setState({
       authors: newArray
     })
+    event.target.previousSibling.value = "";
   }
   handleAddGenreButton(event) {
     let newArray = this.state.genres.slice();
@@ -47,10 +51,36 @@ class AddBookFormContainer extends Component {
     this.setState({
       genres: newArray
     })
+    event.target.previousSibling.value = "";
   }
   handleAddKeywordButton(event) {
     let newArray = this.state.keywords.slice();
     newArray.push(this.state.keyword);
+    this.setState({
+      keywords: newArray
+    })
+    event.target.previousSibling.value = "";
+  }
+  handleDeleteAuthorButton(event) {
+    let indexToDelete = Number(event.target.parentNode.className.split(' ')[1]);
+    let newArray = this.state.authors.slice();
+    newArray.splice(indexToDelete, 1);
+    this.setState({
+      authors: newArray
+    })
+  }
+  handleDeleteGenreButton(event) {
+    let indexToDelete = Number(event.target.parentNode.className.split(' ')[1]);
+    let newArray = this.state.genres.slice();
+    newArray.splice(indexToDelete, 1);
+    this.setState({
+      genres: newArray
+    })
+  }
+  handleDeleteKeywordButton(event) {
+    let indexToDelete = Number(event.target.parentNode.className.split(' ')[1]);
+    let newArray = this.state.keywords.slice();
+    newArray.splice(indexToDelete, 1);
     this.setState({
       keywords: newArray
     })
@@ -114,6 +144,9 @@ class AddBookFormContainer extends Component {
         handleAddAuthorButton={this.handleAddAuthorButton}
         handleAddGenreButton={this.handleAddGenreButton}
         handleAddKeywordButton={this.handleAddKeywordButton}
+        deleteAuthor={this.handleDeleteAuthorButton}
+        deleteGenre={this.handleDeleteGenreButton}
+        deleteKeyword={this.handleDeleteKeywordButton}
         onInputChangeTitle={this.onInputChangeTitle}
         onInputChangeAuthor={this.onInputChangeAuthor}
         onInputChangeGenre={this.onInputChangeGenre}
