@@ -17,4 +17,9 @@
 .DeleteBookButton {
   background-color: red;
   padding: 8px;
+  margin: 10px;
+}
+.keywordList, .genreList {
+  font-size: 12px;
+  font-weight: normal;
 }

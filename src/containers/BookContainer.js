@@ -33,6 +33,9 @@ class BookContainer extends Component {
           <FullBookDisplay
             title={foundBook[0].title}
             author={foundBook[0].author}
+            genres={foundBook[0].genres}
+            keywords={foundBook[0].keywords}
+            datePublished={foundBook[0].datePublished}
             onLoan={foundBook[0].onLoan}
             dateDue={foundBook[0].dateDue}
             imageUrl={BookCover}
