@@ -33,9 +33,12 @@ class MiniBookDisplay extends Component {
       <div className="MiniBookDisplay">
         <h3><Link className="Link" to={'/books/' + this.props.id}>{this.props.title}</Link></h3>
         <h4>{authorList}</h4>
-        <h5>{this.props.location}</h5>
+        <h5>Location: {this.props.location}</h5>
         {loanStatus}
         {dateAvailable}
+        <button className="PlaceHoldButton" onClick={this.props.handlePlaceHoldButton}>Place a Hold</button>
+        <div className="buttonSpacer"></div>
+        <button className="BorrowBookButton" onClick={this.props.handleBorrowBookButton}>Borrow Book</button>
       </div>
     )
   }

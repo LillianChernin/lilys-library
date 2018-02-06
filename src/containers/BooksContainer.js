@@ -6,8 +6,18 @@ class BooksContainer extends Component {
   constructor() {
     super();
     this.state = {
-      books: ""
+      books: "",
+      borrowButtonClicked: false,
+      placeHoldButtonClicked: false
     }
+    this.handleBorrowBookButton = this.handleBorrowBookButton.bind(this);
+    this.handlePlaceHoldButton = this.handlePlaceHoldButton.bind(this);
+  }
+  handleBorrowBookButton() {
+    console.log('borrow book button was clicked!')
+  }
+  handlePlaceHoldButton() {
+    console.log('request hold button was clicked!')
   }
   render() {
     let self = this;
@@ -20,7 +30,10 @@ class BooksContainer extends Component {
               author={book.author}
               dateDue={book.dateDue}
               onLoan={book.onLoan}
+              location={book.location}
               id={book._id}
+              handleBorrowBookButton={this.handleBorrowBookButton}
+              handlePlaceHoldButton={this.handlePlaceHoldButton}
             />
           )
         })

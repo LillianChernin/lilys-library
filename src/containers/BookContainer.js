@@ -12,12 +12,18 @@ class BookContainer extends Component {
       dateDate: ""
     }
     this.handleBorrowBookButton = this.handleBorrowBookButton.bind(this);
-    this.handleRequestHoldButton = this.handleRequestHoldButton.bind(this);
+    this.handlePlaceHoldButton = this.handlePlaceHoldButton.bind(this);
+    this.handleDeleteBookButton = this.handleDeleteBookButton.bind(this);
   }
   handleBorrowBookButton() {
-
+    console.log('borrow book button was clicked!')
   }
-
+  handlePlaceHoldButton() {
+    console.log('place hold button was clicked!');
+  }
+  handleDeleteBookButton() {
+    console.log('delete book button was clicked!');
+  }
   render() {
     let self = this;
     if (this.state.book === "") {
@@ -30,6 +36,10 @@ class BookContainer extends Component {
             onLoan={foundBook[0].onLoan}
             dateDue={foundBook[0].dateDue}
             imageUrl={BookCover}
+            location={foundBook[0].location}
+            handleBorrowBookButton={this.handleBorrowBookButton}
+            handlePlaceHoldButton={this.handlePlaceHoldButton}
+            handleDeleteBookButton={this.handleDeleteBookButton}
           />
         )
         self.setState({

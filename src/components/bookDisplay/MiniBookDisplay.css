@@ -17,3 +17,11 @@
   text-decoration: none;
   color: black;
 }
+.buttonSpacer {
+  width: 25%;
+  display: inline-block;
+}
+
+.BorrowBookButton, .PlaceHoldButton {
+  margin: 10px;
+}
