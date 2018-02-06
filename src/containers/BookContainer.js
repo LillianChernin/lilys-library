@@ -7,9 +7,17 @@ class BookContainer extends Component {
   constructor() {
     super();
     this.state = {
-      book: ""
+      book: "",
+      onLoan: "",
+      dateDate: ""
     }
+    this.handleBorrowBookButton = this.handleBorrowBookButton.bind(this);
+    this.handleRequestHoldButton = this.handleRequestHoldButton.bind(this);
   }
+  handleBorrowBookButton() {
+
+  }
+
   render() {
     let self = this;
     if (this.state.book === "") {

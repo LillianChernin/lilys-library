@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import homeIcon from '../../images/home-icon.png';
 import booksIcon from '../../images/books-icon.png';
 import addBookIcon from '../../images/add-book-icon.png';
+import bookReturnIcon from '../../images/library-book-return-v2.png';
 import BrowseContainer from '../../containers/BrowseContainer';
 import SearchContainer from '../../containers/SearchContainer';
 import './Header.css';
@@ -21,6 +22,7 @@ class Header extends Component {
             <Link to={'/books'}><img src={booksIcon} alt="books" className="Header-icon"/></Link>
             <Link to={'/'}><img src={homeIcon} alt="house" className="Header-icon"/></Link>
             <Link to={'/addbook'}><img src={addBookIcon} alt="book with plus sign" className="Header-icon"/></Link>
+            <Link to={'/return'}><img src={bookReturnIcon} alt="book return" className="Header-icon"/></Link>
           </div>
         </div>
         <div className="bottomHeader">

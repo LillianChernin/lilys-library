@@ -30,9 +30,11 @@ class FullBookDisplay extends Component {
     }
     return (
       <div className="FullBookDisplay">
+        <button onClick={this.props.handleRequestHoldButton}>Request Hold</button>
+        <button onClick={this.props.handleBorrowBookButton}>Borrow Book</button>
         <h2>{this.props.title}</h2>
         <h3>{authorList}</h3>
-        <img src={this.props.imageUrl} alt="book cover" />  
+        <img src={this.props.imageUrl} alt="book cover" />
       </div>
     )
   }
