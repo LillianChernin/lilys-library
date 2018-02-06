@@ -9,20 +9,30 @@ class BookContainer extends Component {
     this.state = {
       book: "",
       onLoan: "",
-      dateDate: ""
+      dateDate: "",
+      bookObject: ""
     }
     this.handleBorrowBookButton = this.handleBorrowBookButton.bind(this);
     this.handlePlaceHoldButton = this.handlePlaceHoldButton.bind(this);
     this.handleDeleteBookButton = this.handleDeleteBookButton.bind(this);
   }
   handleBorrowBookButton() {
-    console.log('borrow book button was clicked!')
+    let userName = prompt("Please enter your name and click OK to borrow book.")
+    if (userName !== null || userName !== "") {
+    }
   }
   handlePlaceHoldButton() {
-    console.log('place hold button was clicked!');
+    let userName = prompt("Please enter your name and click OK to place book on hold.")
+    if (userName !== null || userName !== "") {
+    }
   }
   handleDeleteBookButton() {
-    console.log('delete book button was clicked!');
+    let confirm = prompt("Please confirm deletion of book by typing 'Y' in the box below and clicking OK");
+    if (confirm === 'Y') {
+      BookModel.delete(this.state.bookObject).then((res) => {
+        alert('book was deleted!');
+      })
+    }
   }
   render() {
     let self = this;
@@ -40,13 +50,15 @@ class BookContainer extends Component {
             dateDue={foundBook[0].dateDue}
             imageUrl={BookCover}
             location={foundBook[0].location}
+            id={foundBook[0]._id}
             handleBorrowBookButton={this.handleBorrowBookButton}
             handlePlaceHoldButton={this.handlePlaceHoldButton}
             handleDeleteBookButton={this.handleDeleteBookButton}
           />
         )
         self.setState({
-          book: renderedFoundBook
+          book: renderedFoundBook,
+          bookObject: foundBook
         })
       })
     }
