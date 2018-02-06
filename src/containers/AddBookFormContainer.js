@@ -35,7 +35,32 @@ class AddBookFormContainer extends Component {
     this.onInputChangeLocation = this.onInputChangeLocation.bind(this);
   }
   handleSubmit() {
-    console.log('submit button was clicked!');
+    let self = this;
+    let bookObject = {
+      title: self.state.title,
+      author: self.state.authors,
+      genres: self.state.genres,
+      keywords: self.state.keywords,
+      datePublished: self.state.datePublished,
+      format: self.state.format,
+      imageUrl: self.state.imageUrl,
+      location: self.state.location
+    }
+    BookModel.create(bookObject).then((res) => {
+      self.setState({
+        title: "",
+        author: "",
+        authors: [],
+        genre: "",
+        genres: [],
+        keyword: "",
+        keywords: [],
+        datePublished: "",
+        format: "book",
+        imageUrl: "",
+        location: ""
+      })
+    })
   }
   handleAddAuthorButton(event) {
     let newArray = this.state.authors.slice();
