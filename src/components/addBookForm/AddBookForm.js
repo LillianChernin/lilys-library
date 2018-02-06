@@ -3,6 +3,18 @@ import './AddBookForm.css';
 
 class AddBookForm extends Component {
   render() {
+    let renderedAuthors = [];
+    let renderedGenres = [];
+    let renderedKeywords = [];
+    for (let i = 0; i < this.props.authors.length; i++) {
+      renderedAuthors.push(<div className="displayAuthor" >{this.props.authors[i]} <button onClick={this.props.deleteAuthor} data-author-index={i}>X</button></div>);
+    }
+    for (let i = 0; i < this.props.genres.length; i++) {
+      renderedGenres.push(<div className="displayGenre" >{this.props.genres[i]} <button onClick={this.props.deleteGenre} data-genre-index={i}>X</button></div>);
+    }
+    for (let i = 0; i < this.props.keywords.length; i++) {
+      renderedKeywords.push(<div className="displayKeyword" >{this.props.keywords[i]} <button onClick={this.props.deleteKeyword} data-keyword-index={i}>X</button></div>);
+    }
     return (
       <div className="AddBookForm">
         <span>Book Title: </span>
@@ -10,15 +22,18 @@ class AddBookForm extends Component {
         <br />
         <span>Author(s): </span>
         <input type="text" onChange={this.props.onInputChangeAuthor}/>
-        <button>Add Author</button>
+        <button onClick={this.props.handleAddAuthorButton}>Add Author</button>
+        <div className="Authors">{renderedAuthors}</div>
         <br />
         <span>Genre(s): </span>
         <input type="text" onChange={this.props.onInputChangeGenre}/>
-        <button>Add Genre</button>
+        <button onClick={this.props.handleAddGenreButton}>Add Genre</button>
+        <div className="Genres">{renderedGenres}</div>
         <br />
         <span>Keywords: </span>
         <input type="text" onChange={this.props.onInputChangeKeyword}/>
-        <button>Add Keyword</button>
+        <button onClick={this.props.handleAddKeywordButton}>Add Keyword</button>
+        <div className="Keywords">{renderedKeywords}</div>
         <br />
         <span>Date Published: </span>
         <input type="text" onChange={this.props.onInputChangeDatePublished}/>

@@ -4,6 +4,7 @@ import Home from '../components/home/Home';
 import BookContainer from '../containers/BookContainer';
 import BooksContainer from '../containers/BooksContainer';
 import AddBookFormContainer from '../containers/AddBookFormContainer';
+import BrowseViewContainer from '../containers/BrowseViewContainer';
 
 export default (
   <Switch>
@@ -11,5 +12,7 @@ export default (
     <Route exact path='/books' component={BooksContainer} />
     <Route exact path='/addbook' component={AddBookFormContainer} />
     <Route path='/books/:id' component={BookContainer} />
+    <Route path='/browse/genre/:id' component={BrowseViewContainer} />
+    <Route path='/browse/format/:id' component={BrowseViewContainer} />
   </Switch>
 )

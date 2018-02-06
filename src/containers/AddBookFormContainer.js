@@ -19,6 +19,9 @@ class AddBookFormContainer extends Component {
       location: ""
     }
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleAddAuthorButton = this.handleAddAuthorButton.bind(this);
+    this.handleAddGenreButton = this.handleAddGenreButton.bind(this);
+    this.handleAddKeywordButton = this.handleAddKeywordButton.bind(this);
     this.onInputChangeTitle = this.onInputChangeTitle.bind(this);
     this.onInputChangeAuthor = this.onInputChangeAuthor.bind(this);
     this.onInputChangeGenre = this.onInputChangeGenre.bind(this);
@@ -31,6 +34,27 @@ class AddBookFormContainer extends Component {
   handleSubmit() {
     console.log('submit button was clicked!');
   }
+  handleAddAuthorButton(event) {
+    let newArray = this.state.authors.slice();
+    newArray.push(this.state.author);
+    this.setState({
+      authors: newArray
+    })
+  }
+  handleAddGenreButton(event) {
+    let newArray = this.state.genres.slice();
+    newArray.push(this.state.genre);
+    this.setState({
+      genres: newArray
+    })
+  }
+  handleAddKeywordButton(event) {
+    let newArray = this.state.keywords.slice();
+    newArray.push(this.state.keyword);
+    this.setState({
+      keywords: newArray
+    })
+  }
   onInputChangeTitle(event) {
     this.setState({
       title: event.target.value
@@ -40,7 +64,6 @@ class AddBookFormContainer extends Component {
     this.setState({
       author: event.target.value
     })
-    console.log(this.state.author);
   }
   onInputChangeGenre(event) {
     this.setState({
@@ -61,7 +84,6 @@ class AddBookFormContainer extends Component {
     this.setState({
       format: event.target.value
     })
-    console.log(this.state.format);
   }
   onInputChangeImageUrl(event) {
     this.setState({
@@ -79,13 +101,19 @@ class AddBookFormContainer extends Component {
         <AddBookForm
         title={this.state.title}
         author={this.state.author}
+        authors={this.state.authors}
         genre={this.state.genre}
+        genres={this.state.genres}
         keyword={this.state.keyword}
+        keywords={this.state.keywords}
         datePublished={this.state.datePublished}
         format={this.state.format}
         imageUrl={this.state.imageUrl}
         location={this.state.location}
         handleSubmit={this.handleSubmit}
+        handleAddAuthorButton={this.handleAddAuthorButton}
+        handleAddGenreButton={this.handleAddGenreButton}
+        handleAddKeywordButton={this.handleAddKeywordButton}
         onInputChangeTitle={this.onInputChangeTitle}
         onInputChangeAuthor={this.onInputChangeAuthor}
         onInputChangeGenre={this.onInputChangeGenre}
