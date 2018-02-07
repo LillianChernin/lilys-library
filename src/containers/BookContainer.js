@@ -68,20 +68,20 @@ class BookContainer extends Component {
   render() {
     let self = this;
     if (this.state.book === "") {
-      BookModel.all().then( (res) => {
-        let foundBook = res.data.filter(book => book._id === self.props.match.params.id)
+      BookModel.getOne(self.props.match.params.id).then((res) => {
+        let foundBook = res.data;
         let renderedFoundBook = (
           <FullBookDisplay
-            title={foundBook[0].title}
-            author={foundBook[0].author}
-            genres={foundBook[0].genres}
-            keywords={foundBook[0].keywords}
-            datePublished={foundBook[0].datePublished}
-            onLoan={foundBook[0].onLoan}
-            dateDue={foundBook[0].dateDue}
-            imageUrl={foundBook[0].imageUrl}
-            location={foundBook[0].location}
-            id={foundBook[0]._id}
+            title={foundBook.title}
+            author={foundBook.author}
+            genres={foundBook.genres}
+            keywords={foundBook.keywords}
+            datePublished={foundBook.datePublished}
+            onLoan={foundBook.onLoan}
+            dateDue={foundBook.dateDue}
+            imageUrl={foundBook.imageUrl}
+            location={foundBook.location}
+            id={foundBook._id}
             handleBorrowBookButton={this.handleBorrowBookButton}
             handlePlaceHoldButton={this.handlePlaceHoldButton}
             handleDeleteBookButton={this.handleDeleteBookButton}
@@ -91,7 +91,7 @@ class BookContainer extends Component {
         )
         self.setState({
           book: renderedFoundBook,
-          bookObject: foundBook[0]
+          bookObject: foundBook
         })
       })
     }
