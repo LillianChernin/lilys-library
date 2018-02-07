@@ -14,6 +14,10 @@ class BookModel {
     let request = axios.get(url);
     return request;
   }
+  static showOnLoan() {
+    let request = axios.get('https://lilys-library-back-end.herokuapp.com/api/v1/books/on-loan');
+    return request;
+  }
   static delete(book) {
     let url = 'https://lilys-library-back-end.herokuapp.com/api/v1/books/' + book._id;
     let request = axios.delete(url);

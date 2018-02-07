@@ -21,19 +21,23 @@ class BookContainer extends Component {
     this.handleEditBookLocationButton = this.handleEditBookLocationButton.bind(this);
   }
   handleBorrowBookButton() {
-    let userName = prompt("Please enter your name and click OK to borrow book.")
-    if (userName !== null || userName !== "") {
-      console.log(this.state.bookObject._id);
-      BookModel.borrowBook(this.state.bookObject._id, userName).then((res) => {
-        let dateDue = res.data.dateDue
-        let shortDueDate = dateDue.split('').slice(0,10).join('');
-        alert('The book is now on loan! Please return by ' + shortDueDate);
-      })
+    if (this.state.bookObject.onLoan === false) {
+      let userName = prompt("Please enter your name and click OK to borrow book.")
+      console.log(userName);
+      if (userName !== null && userName !== "") {
+        BookModel.borrowBook(this.state.bookObject._id, userName).then((res) => {
+          let dateDue = res.data.dateDue
+          let shortDueDate = dateDue.split('').slice(0,10).join('');
+          alert('The book is now on loan! Please return by ' + shortDueDate);
+        })
+      }
+    } else {
+      alert('Book is not available.');
     }
   }
   handlePlaceHoldButton() {
     let userName = prompt("Please enter your name and click OK to place book on hold.")
-    if (userName !== null || userName !== "") {
+    if (userName !== null && userName !== "") {
     }
   }
   handleDeleteBookButton() {
