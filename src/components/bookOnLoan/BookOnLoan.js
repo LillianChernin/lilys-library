@@ -30,7 +30,7 @@ class BookOnLoan extends Component {
       dateAvailable = <h5></h5>
     }
     return (
-      <div className={this.props.id}>
+      <div className={"BookOnLoan " + this.props.id}>
         <Link className="Link" to={'/books/' + this.props.id}><div className="MiniBookDisplayInnerContent">
           <h3>{this.props.title}</h3>
           <img className="MiniBookCover" src={this.props.imageUrl} alt="book cover" />

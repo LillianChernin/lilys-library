@@ -11,7 +11,7 @@ class BooksOnLoanContainer extends Component {
     this.handleReturnBookButton = this.handleReturnBookButton.bind(this);
   }
   handleReturnBookButton(event) {
-    let bookId = event.target.parentNode.className;
+    let bookId = event.target.parentNode.className.split(' ')[1];
     BookModel.returnBook(bookId).then((res) => {
       alert('book was returned!');
     })
