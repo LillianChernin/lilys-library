@@ -13,8 +13,25 @@ class BooksContainer extends Component {
     this.handleBorrowBookButton = this.handleBorrowBookButton.bind(this);
     this.handlePlaceHoldButton = this.handlePlaceHoldButton.bind(this);
   }
-  handleBorrowBookButton() {
-    console.log('borrow book button was clicked!')
+  handleBorrowBookButton(event) {
+    let bookId = event.target.parentNode.className.split(' ')[1];
+    console.log(bookId);
+    let currentBook;
+    BookModel.getOne(bookId).then((res) => {
+      console.log(res.data);
+      if (res.data.onLoan === false) {
+        let userName = prompt("Please enter your name and click OK to borrow book.")
+        if (userName !== null && userName !== "") {
+          BookModel.borrowBook(bookId, userName).then((res) => {
+            let dateDue = res.data.dateDue
+            let shortDueDate = dateDue.split('').slice(0,10).join('');
+            alert('The book is now on loan! Please return by ' + shortDueDate);
+          })
+        }
+      } else {
+        alert('Book is not available.');
+      }
+    })
   }
   handlePlaceHoldButton() {
     console.log('request hold button was clicked!')
