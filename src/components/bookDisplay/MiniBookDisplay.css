@@ -1,5 +1,5 @@
 .MiniBookDisplay {
-  border: 2px solid black;
+  border: 2px solid #56544d;
   display: inline-block;
   width: 30%;
   margin: 10px;
@@ -18,10 +18,25 @@
   color: black;
 }
 .buttonSpacer {
-  width: 25%;
+  width: 30%;
   display: inline-block;
 }
 
 .BorrowBookButton, .PlaceHoldButton {
   margin: 10px;
+  padding: 10px;
+  font-size: 14px;
+  background-color: #e2cb8a;
+  border: 1px solid #56544d;
+}
+.MiniBookDisplayInnerContent {
+  border: 1px solid #56544d;
+  background-color: #ccdef9;
+}
+.MiniBookCover {
+  height: 80px;
+}
+.MiniBookDisplay-AuthorList {
+  font-size: 16px;
+  font-weight: normal;
 }

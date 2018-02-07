@@ -32,6 +32,7 @@ class BooksContainer extends Component {
               onLoan={book.onLoan}
               location={book.location}
               id={book._id}
+              imageUrl={book.imageUrl}
               handleBorrowBookButton={this.handleBorrowBookButton}
               handlePlaceHoldButton={this.handlePlaceHoldButton}
             />

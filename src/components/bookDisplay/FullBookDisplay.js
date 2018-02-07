@@ -55,7 +55,7 @@ class FullBookDisplay extends Component {
     }
     if (this.props.onLoan) {
       loanStatus = <h5 className="OnLoan">On Loan</h5>
-      dateAvailable = <h5 className="dateAvailable">Due: {this.props.dateDue}</h5>
+      dateAvailable = <h5 className="dateAvailable">Due: {this.props.dateDue.split('').slice(0,10).join('')}</h5>
     } else {
       loanStatus = <h5 className="Available">Available</h5>
       dateAvailable = <h5></h5>
@@ -68,6 +68,7 @@ class FullBookDisplay extends Component {
         <h2 className="BookTitle">{this.props.title}</h2>
         <h3 className="BookAuthors">Author: {authorList}</h3>
         <h3 className="BookLocation">Location: {this.props.location}</h3>
+        <button className="EditBookLocationButton" onClick={this.props.handleEditBookLocationButton}>Edit Location</button>
         {loanStatus}
         {dateAvailable}
         <h4 className="BookGenres">Genre: <span className="genreList">{genresList}</span></h4>
@@ -76,6 +77,8 @@ class FullBookDisplay extends Component {
         <img className="bookDisplayImage" src={this.props.imageUrl} alt="book cover" />
         <br />
         <br />
+        <button className="EditBookButton" onClick={this.props.handleEditBookButton}>Edit Book</button>
+        <div className="ButtonSpacer"></div>
         <button className="DeleteBookButton" onClick={this.props.handleDeleteBookButton}>Delete Book</button>
       </div>
     )

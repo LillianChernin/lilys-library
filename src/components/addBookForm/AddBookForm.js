@@ -50,8 +50,8 @@ class AddBookForm extends Component {
           <option value="DVD">DVD</option>
         </select>
         <br />
-        <span>Image URL: </span>
-        <input type="text" onChange={this.props.onInputChangeImageUrl}/>
+        <span>ISBN: </span>
+        <input type="text" onChange={this.props.onInputChangeIsbn}/>
         <br />
         <span>Location: </span>
         <input type="text" onChange={this.props.onInputChangeLocation}/>

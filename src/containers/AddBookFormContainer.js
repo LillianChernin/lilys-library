@@ -15,7 +15,7 @@ class AddBookFormContainer extends Component {
       keywords: [],
       datePublished: "",
       format: "book",
-      imageUrl: "",
+      isbn: "",
       location: ""
     }
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -31,11 +31,13 @@ class AddBookFormContainer extends Component {
     this.onInputChangeKeyword = this.onInputChangeKeyword.bind(this);
     this.onInputChangeDatePublished = this.onInputChangeDatePublished.bind(this);
     this.onInputChangeFormat = this.onInputChangeFormat.bind(this);
-    this.onInputChangeImageUrl = this.onInputChangeImageUrl.bind(this);
+    this.onInputChangeIsbn = this.onInputChangeIsbn.bind(this);
     this.onInputChangeLocation = this.onInputChangeLocation.bind(this);
   }
   handleSubmit() {
     let self = this;
+    let imageUrl = "http://covers.openlibrary.org/b/isbn/" + this.state.isbn + "-L.jpg"
+    console.log(this.state.isbn);
     let bookObject = {
       title: self.state.title,
       author: self.state.authors,
@@ -43,8 +45,9 @@ class AddBookFormContainer extends Component {
       keywords: self.state.keywords,
       datePublished: self.state.datePublished,
       format: self.state.format,
-      imageUrl: self.state.imageUrl,
-      location: self.state.location
+      isbn: self.state.isbn,
+      location: self.state.location,
+      imageUrl: imageUrl
     }
     BookModel.create(bookObject).then((res) => {
       self.setState({
@@ -57,7 +60,7 @@ class AddBookFormContainer extends Component {
         keywords: [],
         datePublished: "",
         format: "book",
-        imageUrl: "",
+        isbn: "",
         location: ""
       })
     })
@@ -140,9 +143,9 @@ class AddBookFormContainer extends Component {
       format: event.target.value
     })
   }
-  onInputChangeImageUrl(event) {
+  onInputChangeIsbn(event) {
     this.setState({
-      imageUrl: event.target.value
+      isbn: event.target.value
     })
   }
   onInputChangeLocation(event) {
@@ -163,7 +166,7 @@ class AddBookFormContainer extends Component {
         keywords={this.state.keywords}
         datePublished={this.state.datePublished}
         format={this.state.format}
-        imageUrl={this.state.imageUrl}
+        isbn={this.state.isbn}
         location={this.state.location}
         handleSubmit={this.handleSubmit}
         handleAddAuthorButton={this.handleAddAuthorButton}
@@ -178,7 +181,7 @@ class AddBookFormContainer extends Component {
         onInputChangeKeyword={this.onInputChangeKeyword}
         onInputChangeDatePublished={this.onInputChangeDatePublished}
         onInputChangeFormat={this.onInputChangeFormat}
-        onInputChangeImageUrl={this.onInputChangeImageUrl}
+        onInputChangeIsbn={this.onInputChangeIsbn}
         onInputChangeLocation={this.onInputChangeLocation}
         />
       </div>

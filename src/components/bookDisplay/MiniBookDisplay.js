@@ -24,18 +24,21 @@ class MiniBookDisplay extends Component {
     }
     if (this.props.onLoan) {
       loanStatus = <h5 className="OnLoan">On Loan</h5>
-      dateAvailable = <h5 className="dateAvailable">Due: {this.props.dateDue}</h5>
+      dateAvailable = <h5 className="dateAvailable">Due: {this.props.dateDue.split('').slice(0,10).join('')}</h5>
     } else {
       loanStatus = <h5 className="Available">Available</h5>
       dateAvailable = <h5></h5>
     }
     return (
       <div className="MiniBookDisplay">
-        <h3><Link className="Link" to={'/books/' + this.props.id}>{this.props.title}</Link></h3>
-        <h4>{authorList}</h4>
-        <h5>Location: {this.props.location}</h5>
-        {loanStatus}
-        {dateAvailable}
+        <Link className="Link" to={'/books/' + this.props.id}><div className="MiniBookDisplayInnerContent">
+          <h3>{this.props.title}</h3>
+          <img className="MiniBookCover" src={this.props.imageUrl} alt="book cover" />
+          <h4> By <span className="MiniBookDisplay-AuthorList">{authorList}</span></h4>
+          <h5>Location: {this.props.location}</h5>
+          {loanStatus}
+          {dateAvailable}
+        </div></Link>
         <button className="PlaceHoldButton" onClick={this.props.handlePlaceHoldButton}>Place a Hold</button>
         <div className="buttonSpacer"></div>
         <button className="BorrowBookButton" onClick={this.props.handleBorrowBookButton}>Borrow Book</button>

@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import FullBookDisplay from '../components/bookDisplay/FullBookDisplay';
 import BookCover from '../images/test-book-cover-1.jpg'
 import BookModel from '../models/Book';
+import EditBookFormContainer from './EditBookFormContainer';
 
 class BookContainer extends Component {
   constructor() {
@@ -10,15 +11,24 @@ class BookContainer extends Component {
       book: "",
       onLoan: "",
       dateDate: "",
-      bookObject: ""
+      bookObject: "",
+      inEditMode: false
     }
     this.handleBorrowBookButton = this.handleBorrowBookButton.bind(this);
     this.handlePlaceHoldButton = this.handlePlaceHoldButton.bind(this);
     this.handleDeleteBookButton = this.handleDeleteBookButton.bind(this);
+    this.handleEditBookButton = this.handleEditBookButton.bind(this);
+    this.handleEditBookLocationButton = this.handleEditBookLocationButton.bind(this);
   }
   handleBorrowBookButton() {
     let userName = prompt("Please enter your name and click OK to borrow book.")
     if (userName !== null || userName !== "") {
+      console.log(this.state.bookObject._id);
+      BookModel.borrowBook(this.state.bookObject._id, userName).then((res) => {
+        let dateDue = res.data.dateDue
+        let shortDueDate = dateDue.split('').slice(0,10).join('');
+        alert('The book is now on loan! Please return by ' + shortDueDate);
+      })
     }
   }
   handlePlaceHoldButton() {
@@ -31,6 +41,23 @@ class BookContainer extends Component {
     if (confirm === 'Y') {
       BookModel.delete(this.state.bookObject).then((res) => {
         alert('book was deleted!');
+      })
+    }
+  }
+  handleEditBookButton() {
+    console.log('edit book button was clicked!');
+    let updatedState = !(this.state.inEditMode)
+    this.setState({
+      inEditMode: updatedState
+    })
+    console.log(this.state.inEditMode)
+    console.log(updatedState)
+  }
+  handleEditBookLocationButton() {
+    let newLocation = prompt("Please enter the new location and click OK to update");
+    if (newLocation !== null || newLocation !== "") {
+      BookModel.updateLocation(this.state.bookObject._id, newLocation).then((res) => {
+        alert('location was sucessfully updated!');
       })
     }
   }
@@ -48,23 +75,32 @@ class BookContainer extends Component {
             datePublished={foundBook[0].datePublished}
             onLoan={foundBook[0].onLoan}
             dateDue={foundBook[0].dateDue}
-            imageUrl={BookCover}
+            imageUrl={foundBook[0].imageUrl}
             location={foundBook[0].location}
             id={foundBook[0]._id}
             handleBorrowBookButton={this.handleBorrowBookButton}
             handlePlaceHoldButton={this.handlePlaceHoldButton}
             handleDeleteBookButton={this.handleDeleteBookButton}
+            handleEditBookButton={this.handleEditBookButton}
+            handleEditBookLocationButton={this.handleEditBookLocationButton}
           />
         )
         self.setState({
           book: renderedFoundBook,
-          bookObject: foundBook
+          bookObject: foundBook[0]
         })
       })
+    }
+    let renderedEditForm;
+    if (this.state.inEditMode === true) {
+      renderedEditForm = (
+        <EditBookFormContainer book={this.state.bookObject} />
+      )
     }
     return (
       <div className="BookContainer">
         {this.state.book}
+        {renderedEditForm}
       </div>
     )
   }
