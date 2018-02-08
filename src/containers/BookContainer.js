@@ -13,14 +13,13 @@ class BookContainer extends Component {
       dateDate: "",
       bookObject: "",
       inEditMode: false,
-      seeHoldList: false
     }
     this.handleBorrowBookButton = this.handleBorrowBookButton.bind(this);
     this.handlePlaceHoldButton = this.handlePlaceHoldButton.bind(this);
     this.handleDeleteBookButton = this.handleDeleteBookButton.bind(this);
     this.handleEditBookButton = this.handleEditBookButton.bind(this);
     this.handleEditBookLocationButton = this.handleEditBookLocationButton.bind(this);
-    this.handleSeeHoldListButton = this.handleSeeHoldListButton.bind(this);
+    this.handleRemoveHoldButton = this.handleRemoveHoldButton.bind(this);
   }
   handleBorrowBookButton() {
     if (this.state.bookObject.onLoan === false) {
@@ -73,10 +72,11 @@ class BookContainer extends Component {
       })
     }
   }
-  handleSeeHoldListButton() {
-    let updatedState = !(this.state.seeHoldList);
-    this.setState({
-      seeHoldList: updatedState
+  handleRemoveHoldButton(event) {
+    let userName = event.target.parentNode.innerHTML.split(' ')[0];
+    let id = this.state.bookObject._id
+    BookModel.removeHold(id, userName).then((res) => {
+      console.log('http request complete!')
     })
   }
   render() {
@@ -102,7 +102,7 @@ class BookContainer extends Component {
             handleDeleteBookButton={this.handleDeleteBookButton}
             handleEditBookButton={this.handleEditBookButton}
             handleEditBookLocationButton={this.handleEditBookLocationButton}
-            handleSeeHoldListButton={this.handleSeeHoldListButton}
+            handleRemoveHoldButton={this.handleRemoveHoldButton}
           />
         )
         self.setState({
@@ -112,25 +112,14 @@ class BookContainer extends Component {
       })
     }
     let renderedEditForm;
-    let renderedHoldList;
     if (this.state.inEditMode === true) {
       renderedEditForm = (
         <EditBookFormContainer book={this.state.bookObject} />
       )
     }
-    if (this.state.seeHoldList === true) {
-      renderedHoldList = this.state.bookObject.holdOwner.map((owner, i) => {
-        return <li key={i}>{owner}</li>
-      })
-    } else {
-      renderedHoldList = <ol></ol>
-    }
     return (
       <div className="BookContainer">
         {this.state.book}
-        <ol>
-          {renderedHoldList}
-        </ol>
         {renderedEditForm}
       </div>
     )

@@ -63,7 +63,7 @@ class FullBookDisplay extends Component {
     }
     if (this.props.holds.length > 0) {
       let currentHoldOwners = this.props.holds.map((owner, i) => {
-        return (<li>{owner} <button key={i} onClick={this.props.handleRemoveHoldButton}>Remove Hold</button></li>)
+        return (<li>{owner} <button key={i} className={this.props.id} onClick={this.props.handleRemoveHoldButton}>Remove Hold</button></li>)
       })
       holdStatus = (<div className="FullBookDisplay-HoldsStatus"><h5 className="FullBookDisplay-Holds">Holds: {this.props.holds.length}</h5><h5>Current Hold Owners</h5><ol className="FullBookDisplay-HoldOwners">{currentHoldOwners}</ol></div>)
     } else {
