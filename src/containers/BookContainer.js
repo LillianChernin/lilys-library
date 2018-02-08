@@ -44,6 +44,10 @@ class BookContainer extends Component {
   handlePlaceHoldButton() {
     let userName = prompt("Please enter your name and click OK to place book on hold.")
     if (userName !== null && userName !== "") {
+      let self = this;
+      BookModel.placeHold(this.state.bookObject._id, userName).then((res) => {
+        console.log(res);
+      })
     }
   }
   handleDeleteBookButton() {

@@ -38,8 +38,16 @@ class BooksContainer extends Component {
       }
     })
   }
-  handlePlaceHoldButton() {
-    console.log('request hold button was clicked!')
+  handlePlaceHoldButton(event) {
+    let bookId = event.target.parentNode.className.split(' ')[1];
+    console.log('request hold button was clicked!');
+    let userName = prompt("Please enter your name and click OK to place book on hold.")
+    if (userName !== null && userName !== "") {
+      let self = this;
+      BookModel.placeHold(bookId, userName).then((res) => {
+        console.log(res);
+      })
+    }
   }
   render() {
     let self = this;
