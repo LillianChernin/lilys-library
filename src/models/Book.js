@@ -64,6 +64,14 @@ class BookModel {
     let request = axios.put(url);
     return request;
   }
+  static search(searchParameter, searchTerm) {
+    let url = 'https://lilys-library-back-end.herokuapp.com/api/v1/books/search';
+    let request = axios.get(url, {
+      searchParameter: searchParameter,
+      searchTerm: searchTerm
+    })
+    return request;
+  }
 }
 
 export default BookModel;

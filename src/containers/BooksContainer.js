@@ -8,12 +8,14 @@ class BooksContainer extends Component {
     this.state = {
       books: "",
       borrowButtonClicked: false,
-      placeHoldButtonClicked: false
+      placeHoldButtonClicked: false,
+      onLoan: ""
     }
     this.handleBorrowBookButton = this.handleBorrowBookButton.bind(this);
     this.handlePlaceHoldButton = this.handlePlaceHoldButton.bind(this);
   }
   handleBorrowBookButton(event) {
+    event.preventDefault()
     let bookId = event.target.parentNode.className.split(' ')[1];
     console.log(bookId);
     let currentBook;
@@ -26,9 +28,9 @@ class BooksContainer extends Component {
           BookModel.borrowBook(bookId, userName).then((res) => {
             let dateDue = res.data.dateDue
             let shortDueDate = dateDue.split('').slice(0,10).join('');
-            alert('The book is now on loan! Please return by ' + shortDueDate);
             self.setState({
-              books: ""
+              books: "",
+              onLoan: true
             })
           })
         }

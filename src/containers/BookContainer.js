@@ -21,7 +21,8 @@ class BookContainer extends Component {
     this.handleEditBookLocationButton = this.handleEditBookLocationButton.bind(this);
     this.handleRemoveHoldButton = this.handleRemoveHoldButton.bind(this);
   }
-  handleBorrowBookButton() {
+  handleBorrowBookButton(event) {
+    event.preventDefault();
     if (this.state.bookObject.onLoan === false) {
       let userName = prompt("Please enter your name and click OK to borrow book.")
       console.log(userName);
@@ -33,7 +34,8 @@ class BookContainer extends Component {
           alert('The book is now on loan! Please return by ' + shortDueDate);
           self.setState({
             book: "",
-            bookObject: ""
+            bookObject: "",
+            onLoan: true
           })
         })
       }
@@ -74,9 +76,13 @@ class BookContainer extends Component {
   }
   handleRemoveHoldButton(event) {
     let userName = event.target.parentNode.innerHTML.split(' ')[0];
-    let id = this.state.bookObject._id
+    let id = this.state.bookObject._id;
+    let self = this;
     BookModel.removeHold(id, userName).then((res) => {
       console.log('http request complete!')
+      self.setState({
+        book: ""
+      })
     })
   }
   render() {
