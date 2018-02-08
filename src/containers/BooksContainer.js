@@ -30,7 +30,6 @@ class BooksContainer extends Component {
             self.setState({
               books: ""
             })
-            self.forceUpdate();
           })
         }
       } else {
@@ -53,7 +52,7 @@ class BooksContainer extends Component {
     let self = this;
     if (this.state.books === "") {
       BookModel.all().then( (res) => {
-        let books = res.data.map((book) => {
+        let books = res.data.map((book, i) => {
           return (
             <MiniBookDisplay
               title={book.title}
@@ -63,6 +62,8 @@ class BooksContainer extends Component {
               location={book.location}
               id={book._id}
               imageUrl={book.imageUrl}
+              key={i}
+              holds={book.holdOwner.length}
               handleBorrowBookButton={this.handleBorrowBookButton}
               handlePlaceHoldButton={this.handlePlaceHoldButton}
             />

@@ -7,6 +7,7 @@ class MiniBookDisplay extends Component {
     let authorList;
     let loanStatus;
     let dateAvailable;
+    let holdStatus;
     if (this.props.author.length > 2) {
       for (let i = 0; i < this.props.author.length; i++) {
         if (i === (this.props.author.length - 1)) {
@@ -29,6 +30,11 @@ class MiniBookDisplay extends Component {
       loanStatus = <h5 className="Available">Available</h5>
       dateAvailable = <h5></h5>
     }
+    if (this.props.holds > 0) {
+      holdStatus = <h5 className="MiniBookDisplay-Holds">Holds: {this.props.holds}</h5>
+    } else {
+      holdStatus = <h5></h5>
+    }
     return (
       <div className={"MiniBookDisplay " + this.props.id}>
         <Link className="Link" to={'/books/' + this.props.id}><div className="MiniBookDisplayInnerContent">
@@ -38,6 +44,7 @@ class MiniBookDisplay extends Component {
           <h5>Location: {this.props.location}</h5>
           {loanStatus}
           {dateAvailable}
+          {holdStatus}
         </div></Link>
         <button className="PlaceHoldButton" onClick={this.props.handlePlaceHoldButton}>Place a Hold</button>
         <div className="buttonSpacer"></div>

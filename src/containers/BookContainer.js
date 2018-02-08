@@ -12,13 +12,15 @@ class BookContainer extends Component {
       onLoan: "",
       dateDate: "",
       bookObject: "",
-      inEditMode: false
+      inEditMode: false,
+      seeHoldList: false
     }
     this.handleBorrowBookButton = this.handleBorrowBookButton.bind(this);
     this.handlePlaceHoldButton = this.handlePlaceHoldButton.bind(this);
     this.handleDeleteBookButton = this.handleDeleteBookButton.bind(this);
     this.handleEditBookButton = this.handleEditBookButton.bind(this);
     this.handleEditBookLocationButton = this.handleEditBookLocationButton.bind(this);
+    this.handleSeeHoldListButton = this.handleSeeHoldListButton.bind(this);
   }
   handleBorrowBookButton() {
     if (this.state.bookObject.onLoan === false) {
@@ -34,7 +36,6 @@ class BookContainer extends Component {
             book: "",
             bookObject: ""
           })
-          self.forceUpdate();
         })
       }
     } else {
@@ -59,13 +60,10 @@ class BookContainer extends Component {
     }
   }
   handleEditBookButton() {
-    console.log('edit book button was clicked!');
     let updatedState = !(this.state.inEditMode)
     this.setState({
       inEditMode: updatedState
     })
-    console.log(this.state.inEditMode)
-    console.log(updatedState)
   }
   handleEditBookLocationButton() {
     let newLocation = prompt("Please enter the new location and click OK to update");
@@ -74,6 +72,12 @@ class BookContainer extends Component {
         alert('location was sucessfully updated!');
       })
     }
+  }
+  handleSeeHoldListButton() {
+    let updatedState = !(this.state.seeHoldList);
+    this.setState({
+      seeHoldList: updatedState
+    })
   }
   render() {
     let self = this;
@@ -92,11 +96,13 @@ class BookContainer extends Component {
             imageUrl={foundBook.imageUrl}
             location={foundBook.location}
             id={foundBook._id}
+            holds={foundBook.holdOwner}
             handleBorrowBookButton={this.handleBorrowBookButton}
             handlePlaceHoldButton={this.handlePlaceHoldButton}
             handleDeleteBookButton={this.handleDeleteBookButton}
             handleEditBookButton={this.handleEditBookButton}
             handleEditBookLocationButton={this.handleEditBookLocationButton}
+            handleSeeHoldListButton={this.handleSeeHoldListButton}
           />
         )
         self.setState({
@@ -106,14 +112,25 @@ class BookContainer extends Component {
       })
     }
     let renderedEditForm;
+    let renderedHoldList;
     if (this.state.inEditMode === true) {
       renderedEditForm = (
         <EditBookFormContainer book={this.state.bookObject} />
       )
     }
+    if (this.state.seeHoldList === true) {
+      renderedHoldList = this.state.bookObject.holdOwner.map((owner, i) => {
+        return <li key={i}>{owner}</li>
+      })
+    } else {
+      renderedHoldList = <ol></ol>
+    }
     return (
       <div className="BookContainer">
         {this.state.book}
+        <ol>
+          {renderedHoldList}
+        </ol>
         {renderedEditForm}
       </div>
     )

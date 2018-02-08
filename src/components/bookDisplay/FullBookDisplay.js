@@ -8,6 +8,7 @@ class FullBookDisplay extends Component {
     let genresList;
     let keywordsList;
     let dateAvailable;
+    let holdStatus;
     if (this.props.author.length > 2) {
       for (let i = 0; i < this.props.author.length; i++) {
         if (i === (this.props.author.length - 1)) {
@@ -60,6 +61,14 @@ class FullBookDisplay extends Component {
       loanStatus = <h5 className="Available">Available</h5>
       dateAvailable = <h5></h5>
     }
+    if (this.props.holds.length > 0) {
+      let currentHoldOwners = this.props.holds.map((owner, i) => {
+        return (<li>{owner} <button key={i} onClick={this.props.handleRemoveHoldButton}>Remove Hold</button></li>)
+      })
+      holdStatus = (<div className="FullBookDisplay-HoldsStatus"><h5 className="FullBookDisplay-Holds">Holds: {this.props.holds.length}</h5><h5>Current Hold Owners</h5><ol className="FullBookDisplay-HoldOwners">{currentHoldOwners}</ol></div>)
+    } else {
+      holdStatus = <h5></h5>
+    }
     return (
       <div className="FullBookDisplay">
         <button className="PlaceHoldButton" onClick={this.props.handlePlaceHoldButton}>Place Hold</button>
@@ -71,6 +80,7 @@ class FullBookDisplay extends Component {
         <button className="EditBookLocationButton" onClick={this.props.handleEditBookLocationButton}>Edit Location</button>
         {loanStatus}
         {dateAvailable}
+        {holdStatus}
         <h4 className="BookGenres">Genre: <span className="genreList">{genresList}</span></h4>
         <h4 className="BookKeywords">Keywords: <span className="keywordList">{keywordsList}</span></h4>
         <h4 className="BookDatePublished">Date Published: <span className="datePublished">{this.props.datePublished}</span></h4>
