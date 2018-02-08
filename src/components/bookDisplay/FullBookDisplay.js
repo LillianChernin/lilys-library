@@ -87,8 +87,6 @@ class FullBookDisplay extends Component {
         <img className="bookDisplayImage" src={this.props.imageUrl} alt="book cover" />
         <br />
         <br />
-        <button className="EditBookButton" onClick={this.props.handleEditBookButton}>Edit Book</button>
-        <div className="ButtonSpacer"></div>
         <button className="DeleteBookButton" onClick={this.props.handleDeleteBookButton}>Delete Book</button>
       </div>
     )

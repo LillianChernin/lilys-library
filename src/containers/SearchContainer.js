@@ -14,10 +14,11 @@ class SearchContainer extends Component {
     this.onInputChangeSearchTerm = this.onInputChangeSearchTerm.bind(this);
   }
   handleSearchButton(event) {
-    console.log(this.state.searchParameter);
-    console.log(this.state.searchTerm);
+    let searchBody = {};
+    searchBody.searchParameter = this.state.searchParameter;
+    searchBody.searchTerm = this.state.searchTerm;
     let self = this;
-    BookModel.search(self.state.searchParameter, self.state.searchTerm).then((res) => {
+    BookModel.search(searchBody).then((res) => {
       console.log(res);
     })
   }
