@@ -5,7 +5,7 @@ class Search extends Component {
   render() {
     return (
       <div className="Search">
-      <select required name="searchOption">
+      <select className="Search-Select" required name="searchOption">
         <option value="">Search by...</option>
         <option value="title">Title</option>
         <option value="author">Author</option>
@@ -13,8 +13,8 @@ class Search extends Component {
         <option value="genre">Genre</option>
         <option value="format">Format</option>
       </select>
-      <input type="text" placeholder="Enter search term here..."/>
-      <button>Search</button>
+      <input className="Search-Input" type="text" placeholder="Enter search term here..."/>
+      <button className="Search-Button">Search</button>
       </div>
     )
   }

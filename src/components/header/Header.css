@@ -1,9 +1,10 @@
-h1 {
-  font-size: 48px;
-}
+@import url("https://fonts.googleapis.com/css?family=Alegreya+Sans|Alegreya:500i");
+
+
 .bottomHeader {
-  border-top: 3px solid black;
-  border-bottom: 3px solid black;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  width: 100%
 }
 .Header-main-title {
   display: inline-block;
@@ -12,6 +13,8 @@ h1 {
   margin: 0px 20px 50px 20px;
   text-decoration: none;
   color: black;
+  font-size: 64px;
+  font-family: 'Alegreya Sans', sans-serif;
 }
 .Link {
   text-decoration: none;
@@ -27,4 +30,8 @@ h1 {
 .spacer {
   display: inline-block;
   width: 40%;
+}
+.Header-bottomHeader-spacer {
+  width: 50%;
+  display: inline-block;
 }

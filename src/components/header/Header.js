@@ -26,8 +26,9 @@ class Header extends Component {
           </div>
         </div>
         <div className="bottomHeader">
-          <SearchContainer />
           <BrowseContainer />
+          <div className="Header-bottomHeader-spacer"></div>
+          <SearchContainer />
         </div>
       </div>
     )

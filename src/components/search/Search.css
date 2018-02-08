@@ -1,4 +1,17 @@
-button {
-  background-color: green;
+.Search-Button {
+  background-color: rgba(100, 220, 100, 0.9);
   border: none;
+  font-size: 18px;
+  margin: 0px 8px 0px 8px;
+}
+.Search {
+  display: inline-block;
+}
+.Search-Select {
+  font-size: 18px;
+  margin: 0px 8px 0px 8px;
+}
+.Search-Input {
+  font-size: 18px;
+  margin: 0px 8px 0px 8px;
 }

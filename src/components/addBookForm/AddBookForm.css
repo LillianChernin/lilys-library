@@ -11,13 +11,16 @@
 
 .AddBookForm-Input {
   font-size: 24px;
+  width: 400px;
 }
 
 .AddBookForm-Select {
   font-size: 24px;
 }
 .AddBookForm-Button {
-  font-size: 24px;
+  font-size: 18px;
   padding: 10px;
-  color: white;
+  color: black;
+  margin: 5px;
+  background-color: rgba(200, 200, 255, .5);
 }

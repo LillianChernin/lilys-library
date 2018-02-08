@@ -20,6 +20,7 @@ class AddBookForm extends Component {
     }
     return (
       <div className="AddBookForm">
+        <h1 className="AddBookForm-MainHeader">Add Book to Library</h1>
         <span className="AddBookForm-ItemTitles">Book Title: </span>
         <input className="AddBookForm-Input" type="text" onChange={this.props.onInputChangeTitle}/>
         <br />

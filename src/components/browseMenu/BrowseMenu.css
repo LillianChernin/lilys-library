@@ -4,3 +4,15 @@ h2 {
 .ClickedBrowseButton {
   background-color: blue;
 }
+.BrowseMenu {
+  display: inline-block;
+  margin-left: 0px;
+}
+.BrowseButton {
+  font-size: 36px;
+  width: 320px;
+  border-radius: 0px 40px 40px 0px;
+  border: none;
+  background: linear-gradient(to right, rgba(255,0,0,0), rgba(27, 229, 98,1));
+  margin-left: 0px;
+}

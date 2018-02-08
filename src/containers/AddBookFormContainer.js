@@ -63,6 +63,7 @@ class AddBookFormContainer extends Component {
         isbn: "",
         location: ""
       })
+      self.forceUpdate();
     })
   }
   handleAddAuthorButton(event) {

@@ -37,10 +37,17 @@ class BookModel {
     });
     return request;
   }
-  static updateHoldStatus(bookId, holdRequest) {
-    let url = 'https://lilys-library-back-end.herokuapp.com/api/v1/books/' + bookId + '/update-hold-status';
+  static placeHold(bookId, username) {
+    let url = 'https://lilys-library-back-end.herokuapp.com/api/v1/books/' + bookId + '/place-hold';
     let request = axios.put(url, {
-      body: holdRequest
+      userName: username
+    });
+    return request;
+  }
+  static removeHold(bookId, username) {
+    let url = 'https://lilys-library-back-end.herokuapp.com/api/v1/books/' + bookId + '/remove-hold';
+    let request = axios.put(url, {
+      userName: username
     });
     return request;
   }

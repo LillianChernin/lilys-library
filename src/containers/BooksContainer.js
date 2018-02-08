@@ -22,10 +22,15 @@ class BooksContainer extends Component {
       if (res.data.onLoan === false) {
         let userName = prompt("Please enter your name and click OK to borrow book.")
         if (userName !== null && userName !== "") {
+          let self = this;
           BookModel.borrowBook(bookId, userName).then((res) => {
             let dateDue = res.data.dateDue
             let shortDueDate = dateDue.split('').slice(0,10).join('');
             alert('The book is now on loan! Please return by ' + shortDueDate);
+            self.setState({
+              books: ""
+            })
+            self.forceUpdate();
           })
         }
       } else {
