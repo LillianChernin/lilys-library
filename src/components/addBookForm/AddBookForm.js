@@ -20,29 +20,29 @@ class AddBookForm extends Component {
     }
     return (
       <div className="AddBookForm">
-        <span>Book Title: </span>
-        <input type="text" onChange={this.props.onInputChangeTitle}/>
+        <span className="AddBookForm-ItemTitles">Book Title: </span>
+        <input className="AddBookForm-Input" type="text" onChange={this.props.onInputChangeTitle}/>
         <br />
-        <span>Author(s): </span>
-        <input type="text" onChange={this.props.onInputChangeAuthor}/>
-        <button onClick={this.props.handleAddAuthorButton}>Add Author</button>
+        <span className="AddBookForm-ItemTitles">Author(s): </span>
+        <input className="AddBookForm-Input" type="text" onChange={this.props.onInputChangeAuthor}/>
+        <button className="AddBookForm-Button" onClick={this.props.handleAddAuthorButton}>Add Author</button>
         <div className="Authors">{renderedAuthors}</div>
         <br />
-        <span>Genre(s): </span>
-        <input type="text" onChange={this.props.onInputChangeGenre}/>
-        <button onClick={this.props.handleAddGenreButton}>Add Genre</button>
+        <span className="AddBookForm-ItemTitles">Genre(s): </span>
+        <input className="AddBookForm-Input" type="text" onChange={this.props.onInputChangeGenre}/>
+        <button className="AddBookForm-Button" onClick={this.props.handleAddGenreButton}>Add Genre</button>
         <div className="Genres">{renderedGenres}</div>
         <br />
-        <span>Keywords: </span>
-        <input type="text" onChange={this.props.onInputChangeKeyword}/>
-        <button onClick={this.props.handleAddKeywordButton}>Add Keyword</button>
+        <span className="AddBookForm-ItemTitles">Keywords: </span>
+        <input className="AddBookForm-Input" type="text" onChange={this.props.onInputChangeKeyword}/>
+        <button className="AddBookForm-Button" onClick={this.props.handleAddKeywordButton}>Add Keyword</button>
         <div className="Keywords">{renderedKeywords}</div>
         <br />
-        <span>Date Published: </span>
-        <input type="text" onChange={this.props.onInputChangeDatePublished}/>
+        <span className="AddBookForm-ItemTitles">Date Published: </span>
+        <input className="AddBookForm-Input" type="text" onChange={this.props.onInputChangeDatePublished}/>
         <br />
-        <span>Format: </span>
-        <select required onChange={this.props.onInputChangeFormat}>
+        <span className="AddBookForm-ItemTitles">Format: </span>
+        <select className="AddBookForm-Select" required onChange={this.props.onInputChangeFormat}>
           <option value="book">Book</option>
           <option value="book-with-cd">Book w/CD</option>
           <option value="book-with-dvd">Book w/DVD</option>
@@ -50,13 +50,13 @@ class AddBookForm extends Component {
           <option value="DVD">DVD</option>
         </select>
         <br />
-        <span>ISBN: </span>
-        <input type="text" onChange={this.props.onInputChangeIsbn}/>
+        <span className="AddBookForm-ItemTitles">ISBN: </span>
+        <input className="AddBookForm-Input" type="text" onChange={this.props.onInputChangeIsbn}/>
         <br />
-        <span>Location: </span>
-        <input type="text" onChange={this.props.onInputChangeLocation}/>
+        <span className="AddBookForm-ItemTitles">Location: </span>
+        <input className="AddBookForm-Input" type="text" onChange={this.props.onInputChangeLocation}/>
         <br />
-        <button onClick={this.props.handleSubmit}>Add to Library</button>
+        <button className="AddBookForm-Button" onClick={this.props.handleSubmit}>Add to Library</button>
       </div>
     )
   }

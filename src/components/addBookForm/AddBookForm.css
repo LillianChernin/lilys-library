@@ -1,0 +1,23 @@
+.AddBookForm {
+  width: 60%;
+  text-align: left;
+  margin-left: 35%;
+  margin-top: 20px;
+}
+
+.AddBookForm-ItemTitles {
+  font-size: 24px;
+}
+
+.AddBookForm-Input {
+  font-size: 24px;
+}
+
+.AddBookForm-Select {
+  font-size: 24px;
+}
+.AddBookForm-Button {
+  font-size: 24px;
+  padding: 10px;
+  color: white;
+}
