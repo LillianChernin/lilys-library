@@ -22,10 +22,10 @@ class RandomBookOfDay extends Component {
     }
     return (
       <div className="RandomBookOfDay">
-        <h1>Random Book of the Day!</h1>
-        <Link className="RandomBook-Link" to={'/books/' +  this.props.book._id}><h2>{this.props.book.title}</h2></Link>
-        <h3>By {authorList}</h3>
-        <img src={this.props.book.imageUrl}/>
+        <h1 className="RandomBookOfDay-Header">Random Book of the Day!</h1>
+        <Link className="RandomBook-Link" to={'/books/' +  this.props.book._id}><h2 className="RandomBookOfDay-Title">{this.props.book.title}</h2></Link>
+        <h3 className="RandomBookOfDay-Author">By {authorList}</h3>
+        <img className="RandomBookOfDay-Image" src={this.props.book.imageUrl}/>
       </div>
     )
   }

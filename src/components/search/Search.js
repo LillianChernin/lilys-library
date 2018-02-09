@@ -9,8 +9,8 @@ class Search extends Component {
         <option value="">Search by...</option>
         <option value="title">Title</option>
         <option value="author">Author</option>
-        <option value="keyword">Keyword</option>
-        <option value="genre">Genre</option>
+        <option value="keywords">Keyword</option>
+        <option value="genres">Genre</option>
         <option value="format">Format</option>
       </select>
       <input onChange={this.props.onInputChangeSearchTerm} className="Search-Input" type="text" placeholder="Enter search term here..."/>

@@ -2,3 +2,14 @@
   text-decoration: none;
   color: #214277;
 }
+.RandomBookOfDay {
+  width: 60%;
+  border: 2px solid black;
+  margin: 0 auto;
+}
+.RandomBookOfDay-Header {
+  font-size: 28px;
+}
+.RandomBookOfDayImage {
+  height: 250px;
+}
