@@ -3,6 +3,8 @@
   display: inline-block;
   width: 30%;
   margin: 10px;
+  vertical-align: top;
+  height: 380px;
 }
 
 .Available {
@@ -32,6 +34,7 @@
 .MiniBookDisplayInnerContent {
   border: 1px solid #56544d;
   background-color: #ccdef9;
+  height: 320px;
 }
 .MiniBookCover {
   height: 80px;
