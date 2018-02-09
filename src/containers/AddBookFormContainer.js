@@ -34,7 +34,8 @@ class AddBookFormContainer extends Component {
     this.onInputChangeIsbn = this.onInputChangeIsbn.bind(this);
     this.onInputChangeLocation = this.onInputChangeLocation.bind(this);
   }
-  handleSubmit() {
+  handleSubmit(event) {
+    let inputs = event.target.parentNode.getElementsByClassName('AddBookForm-Input');
     let self = this;
     let imageUrl = "http://covers.openlibrary.org/b/isbn/" + this.state.isbn + "-L.jpg"
     console.log(this.state.isbn);
@@ -63,6 +64,10 @@ class AddBookFormContainer extends Component {
         isbn: "",
         location: ""
       })
+      inputs[0].value = "";
+      inputs[4].value = "";
+      inputs[5].value = "";
+      inputs[6].value = "";
     })
   }
   handleAddAuthorButton(event) {

@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
-import BooksContainer from '../../containers/BooksContainer';
+import RandomBookOfDayContainer from '../../containers/RandomBookOfDayContainer';
 
 class Home extends Component {
   render() {
     return (
-      <div>
-        <BooksContainer />
+      <div className="Home">
+        <RandomBookOfDayContainer />
       </div>
     )
   }

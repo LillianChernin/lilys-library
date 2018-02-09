@@ -3,6 +3,7 @@ import FullBookDisplay from '../components/bookDisplay/FullBookDisplay';
 import BookCover from '../images/test-book-cover-1.jpg'
 import BookModel from '../models/Book';
 import EditBookFormContainer from './EditBookFormContainer';
+import {Redirect} from 'react-router-dom';
 
 class BookContainer extends Component {
   constructor() {
@@ -13,6 +14,7 @@ class BookContainer extends Component {
       dateDate: "",
       bookObject: "",
       inEditMode: false,
+      bookWasDeleted: false
     }
     this.handleBorrowBookButton = this.handleBorrowBookButton.bind(this);
     this.handlePlaceHoldButton = this.handlePlaceHoldButton.bind(this);
@@ -53,10 +55,13 @@ class BookContainer extends Component {
     }
   }
   handleDeleteBookButton() {
+    let self = this;
     let confirm = prompt("Please confirm deletion of book by typing 'Y' in the box below and clicking OK");
     if (confirm === 'Y') {
       BookModel.delete(this.state.bookObject).then((res) => {
-        alert('book was deleted!');
+        self.setState({
+          bookWasDeleted: true
+        })
       })
     }
   }
@@ -86,6 +91,11 @@ class BookContainer extends Component {
     })
   }
   render() {
+    if (this.state.bookWasDeleted) {
+      return (
+        <Redirect to="/books" />
+      )
+    }
     let self = this;
     if (this.state.book === "") {
       BookModel.getOne(self.props.match.params.id).then((res) => {
