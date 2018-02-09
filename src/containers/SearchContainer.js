@@ -77,6 +77,16 @@ class SearchContainer extends Component {
         <Redirect to={'/books/' + this.state.result._id}/>
       )
     }
+    if (this.state.searchCompletedMultiResult) {
+      this.setState({
+        searchCompletedMultiResult: false
+      })
+      return (
+        <Redirect to={{
+                pathname: '/search-results',
+                state: { referrer: this.state.results }
+            }} />)
+    }
     return (
       <Search
         handleSearchButton={this.handleSearchButton}

@@ -4,7 +4,8 @@
 .bottomHeader {
   border-top: 1px solid black;
   border-bottom: 1px solid black;
-  width: 100%
+  width: 100%;
+  padding: 12px;
 }
 .Header-main-title {
   display: inline-block;
