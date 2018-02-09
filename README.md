@@ -1,5 +1,13 @@
 # Lily's Library
 
+## Deployed Website:
+
+http://lilys-library-demo.surge.sh
+
+## Github for Back-End Application:
+
+https://github.com/LillianChernin/lilys-library-back-end
+
 ## Description
 Lily's Library is a book managing system for tracking large personal book collections where books have their location listed as well as their availability.  The intent is to make finding and sharing books easier so that books are more likely to be used.  In the app, books can be added, deleted, and updated.  Also a user can checkout books, place books on hold or see when a book will be available next.  This prototype version will only manage my personal library but further expansions will allow users to create their own personal libraries (customized to their books and locations where they are stored) with control over what users can access their library (only their friends or users with the correct credentials for instance).
 
